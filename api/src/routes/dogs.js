@@ -37,9 +37,9 @@ router.get('/', async (req,res)=> {
 
     let fullDog = await createDog.addTemperament(temperamentDB)
     //res.send(fullDog)
-    console.log('fullDog',fullDog)
     console.log('temperamentDB',temperamentDB)
-    console.log('createDog',createDog)
+    
+    res.send(fullDog)
     
  })
 
