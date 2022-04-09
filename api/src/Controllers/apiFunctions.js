@@ -17,16 +17,26 @@ async function fillTemperaments() {
     const data = getTemperaments.data
     if (data) {
         let response = data.map((el) => el.temperament)
-        let responseString =  response.toString()
-         responseString = responseString.split(',')
         
-       let  finalTemperament= [...new Set(responseString)].flat()
+        
+        // removeString =[]
+
+        // response.forEach(el => {
+        //     if(el !== '' && el !==' ' && el !==', '){
+        //         response.push(el)
+        //     }
+        // })
+        
 
 
-
+        let responseString=  response.toString()
+        
+        let test=  responseString.split(', ').join(',').split(',')
+        
+       let  finalTemperament= [...new Set(test)].flat()
        
        
-     
+     //console.log('soy api',finalTemperament)
        return finalTemperament 
         
 
@@ -37,7 +47,7 @@ async function fillTemperaments() {
         const dataTemperaments = await fillTemperaments()
 
         if (dataTemperaments.length>0) {
-            
+           // console.log('soyy', dataTemperaments)
              dataTemperaments.map(el => Temperament.findOrCreate({
                 where: {
                     temperament: el
@@ -47,6 +57,7 @@ async function fillTemperaments() {
     
         }
            const fillDB = await Temperament.findAll()
+           console.log('soy db',fillDB )
             return fillDB
         }
 
