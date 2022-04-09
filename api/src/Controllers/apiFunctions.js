@@ -5,7 +5,7 @@ async function getDogs() {
     const apiInfo = await getAPiInfo()
     //   const temperaments = await temperamentsDB()
     const temperaments = await temperamentsDB()
-    console.log('db', temperaments)
+    
 
 
     return apiInfo
@@ -16,12 +16,17 @@ async function fillTemperaments() {
     const getTemperaments = await axios.get('https://api.thedogapi.com/v1/breeds')
     const data = getTemperaments.data
     if (data) {
-        let response = data.map(el => el.temperament)
+        let response = data.map((el) => el.temperament)
         let responseString =  response.toString()
-        responseString = responseString.split(',')
-       let  finalTemperament= [...new Set(responseString)]
-       finalTemperament = finalTemperament.join(',')
-      
+         responseString = responseString.split(',')
+        
+       let  finalTemperament= [...new Set(responseString)].flat()
+
+
+
+       
+       
+     
        return finalTemperament 
         
 
@@ -31,19 +36,22 @@ async function fillTemperaments() {
     async function temperamentsDB() {
         const dataTemperaments = await fillTemperaments()
 
-        if (dataTemperaments) {
-
-            const fillDB = await Temperament.findOrCreate({
+        if (dataTemperaments.length>0) {
+            
+             dataTemperaments.map(el => Temperament.findOrCreate({
                 where: {
-                    temperament: dataTemperaments,
+                    temperament: el
                 }
-            })
-           
+    
+            }))
+    
+        }
+           const fillDB = await Temperament.findAll()
             return fillDB
         }
 
 
-    }
+    
 
     async function getAPiInfo() {
         const apiInfo = await axios.get('https://api.thedogapi.com/v1/breeds')
