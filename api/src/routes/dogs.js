@@ -17,20 +17,30 @@ router.get('/', async (req,res)=> {
         name,
         height,
         weight,
-        years
+        years,
+        temperament,
     } = req.body
 
-    let createDog = await Dog.findOrCreate({
-        where:{
+    let createDog = await Dog.create({
+        
             name:name,
             height:height,
             weight: weight,
             years: years
-        },
+        
        
     })
-    res.send(createDog)
-    console.log(createDog)
+
+    let temperamentDB= await Temperament.findAll({
+    where:{['temperament']:temperament }
+    })
+
+    let fullDog = await createDog.addTemperament(temperamentDB)
+    //res.send(fullDog)
+    console.log('fullDog',fullDog)
+    console.log('temperamentDB',temperamentDB)
+    console.log('createDog',createDog)
+    
  })
 
 module.exports = router

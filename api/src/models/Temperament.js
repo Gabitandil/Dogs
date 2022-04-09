@@ -5,8 +5,8 @@ module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('temperament', {
 
-        name: {
-            type: DataTypes.STRING,
+        temperament: {
+            type: DataTypes.TEXT,
         },
     });
 };
