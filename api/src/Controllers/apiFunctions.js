@@ -71,7 +71,7 @@ async function temperamentsDB() {
 async function getAPiInfo() {
     const apiInfo = await axios.get('https://api.thedogapi.com/v1/breeds')
     const data = apiInfo.data
-
+    
     const dbInfo = await Dog.findAll({
         include: {
             model: Temperament,
@@ -108,7 +108,7 @@ async function getAPiInfo() {
 }
 
 async function getByName(name) {
-    const apiInfo = await axios.get('https://api.thecatapi.com/v1/breeds/search?q=' + name)
+    console.log('soy el controller= ', name)
 
 
 }
@@ -116,4 +116,4 @@ async function getByName(name) {
 
 
 
-module.exports = { getDogs }
+module.exports = { getDogs, getByName }

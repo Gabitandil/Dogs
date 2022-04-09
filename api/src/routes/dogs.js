@@ -1,18 +1,28 @@
 
 const { Router } = require('express');
-const dogs = require('../Controllers/apiFunctions')
+const {getDogs, getByName} = require('../Controllers/apiFunctions')
 const { Dog, Temperament } = require('../db')
 const router = Router()
 
-router.get('/', async (req,res)=> {
-    const {name} = req.query;
-    const dogInfo = await dogs.getDogs()
-   console.log("hola soy /")
-   return  res.json(dogInfo)
+router.get('/', async (req, res) => {
+    //ruta de localhost = http://localhost:3001/?name= 
+    const { name } = req.query;
+    
+    if (name) {
+        console.log('entre ', name)
+        const getName = await  getByName(name)
+        return getName
+       
+
+    } else {
+        const dogInfo = await getDogs()
+        console.log("hola soy /")
+        return res.json(dogInfo)
+    }
 })
 
 
- router.post('/create', async(req,res)=> {
+router.post('/create', async (req, res) => {
     let {
         name,
         height,
@@ -22,25 +32,25 @@ router.get('/', async (req,res)=> {
     } = req.body
 
     let createDog = await Dog.create({
-        
-            name:name,
-            height:height,
-            weight: weight,
-            years: years
-        
-       
+
+        name: name,
+        height: height,
+        weight: weight,
+        years: years
+
+
     })
 
-    let temperamentDB= await Temperament.findAll({
-    where:{['temperament']:temperament }
+    let temperamentDB = await Temperament.findAll({
+        where: { ['temperament']: temperament }
     })
 
     let fullDog = await createDog.addTemperament(temperamentDB)
     //res.send(fullDog)
-    console.log('temperamentDB',temperamentDB)
-    
+    console.log('temperamentDB', temperamentDB)
+
     res.send(fullDog)
-    
- })
+
+})
 
 module.exports = router
