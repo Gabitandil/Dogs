@@ -110,7 +110,23 @@ async function getByName(name) {
     console.log('soy el controller= ', name)
     const findDogs = await  axios.get('https://api.thedogapi.com/v1/breeds/search?q='+ name)
     const data = findDogs.data
-    const getImage = await getAlldogs()
+    //const getImage = await getAlldogs()
+
+    const findInDB = await Dog.findAll({
+        where:{  name:name },
+        include:{
+            model: Temperament, 
+            attributes: ["temperament"],
+            through:{
+                attributes: []
+            }
+    }}) 
+    
+    if(findInDB.length>0){
+       
+        return findInDB
+    }
+
     if (data.length>0){
         let response = await data.map(el => {
             return {
@@ -130,7 +146,7 @@ async function getByName(name) {
         
         return response
     } else{
-        console.log('vacio')
+        
         return 'no existe la raza'
     }
 }
