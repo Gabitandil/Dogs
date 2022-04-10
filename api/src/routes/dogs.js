@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     if (name) {
         console.log('entre ', name)
         const getName = await  getByName(name)
-        return getName
+         res.send(getName)
        
 
     } else {

@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
         weight,
         years,
         temperament,
+        image,
     } = req.body
 
     let createDog = await Dog.create({
@@ -17,7 +18,8 @@ router.post('/', async (req, res) => {
         name: name,
         height: height,
         weight: weight,
-        years: years
+        years: years,
+        image: image
 
 
     })
@@ -26,8 +28,10 @@ router.post('/', async (req, res) => {
         where: { ['temperament']: temperament }
     })
 
+    
+
     let fullDog = await createDog.addTemperament(temperamentDB)
-    //res.send(fullDog)
+    
     console.log('temperamentDB', temperamentDB)
 
     res.send(fullDog)

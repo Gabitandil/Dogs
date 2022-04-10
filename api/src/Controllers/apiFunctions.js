@@ -82,9 +82,6 @@ async function getAlldogs() {
         }
     })
 
-
-
-
     if (data.length > 0) {
         let response = await data.map(el => {
             return {
@@ -93,7 +90,9 @@ async function getAlldogs() {
                 temperament: el.temperament,
                 weight: el.weight.metric,
                 temperament: el.temperament,
-                createdInDB: false
+                id: el.id,
+                createdInDB: false,
+                reference_image_id: el.reference_image_id
             }
         })
 
@@ -109,8 +108,31 @@ async function getAlldogs() {
 
 async function getByName(name) {
     console.log('soy el controller= ', name)
+    const findDogs = await  axios.get('https://api.thedogapi.com/v1/breeds/search?q='+ name)
+    const data = findDogs.data
+    const getImage = await getAlldogs()
+    if (data.length>0){
+        let response = await data.map(el => {
+            return {
+                name: el.name,
+                weight: el.weight.metric,
+                height: el.height.metric,
+                id: el.id,
+                image: el.reference_image_id,
+                life_span: el.life_span,
+                temperament: el.temperament,
+                origin: el.origin
+            }
+            
 
 
+        })
+        
+        return response
+    } else{
+        console.log('vacio')
+        return 'no existe la raza'
+    }
 }
 
 
