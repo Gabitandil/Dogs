@@ -28,11 +28,11 @@ router.post('/', async (req, res) => {
         where: { ['temperament']: temperament }
     })
 
+    concatTemperaments = temperamentDB
     
-
+    
     let fullDog = await createDog.addTemperament(temperamentDB)
     
-    console.log('temperamentDB', temperamentDB)
 
     res.send(fullDog)
 

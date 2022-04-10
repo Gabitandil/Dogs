@@ -112,7 +112,7 @@ async function getByName(name) {
     const data = findDogs.data
     //const getImage = await getAlldogs()
 
-    const findInDB = await Dog.findAll({
+    const findInDB = await Dog.findOne({
         where:{  name:name },
         include:{
             model: Temperament, 
@@ -121,10 +121,21 @@ async function getByName(name) {
                 attributes: []
             }
     }}) 
-    
-    if(findInDB.length>0){
-       
-        return findInDB
+    console.log('find in db:', findInDB)
+    if(findInDB){
+       let dogDB  = {}
+       dogDB = {
+           id: findInDB.id,
+           name: findInDB.name,
+           height: findInDB.height,
+           weight: findInDB.weight,
+           years: findInDB.years,
+           image: findInDB.image,
+           temperament: findInDB.temperaments.map(el => el.temperament).join(', ')
+
+        }
+        
+        return dogDB
     }
 
     if (data.length>0){
