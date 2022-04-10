@@ -2,7 +2,7 @@ const axios = require('axios')
 const { Dog, Temperament } = require('../db')
 
 async function getDogs() {
-    const apiInfo = await getAPiInfo()
+    const apiInfo = await getAlldogs()
     //   const temperaments = await temperamentsDB()
     const temperaments = await temperamentsDB()
 
@@ -68,7 +68,7 @@ async function temperamentsDB() {
 
 
 
-async function getAPiInfo() {
+async function getAlldogs() {
     const apiInfo = await axios.get('https://api.thedogapi.com/v1/breeds')
     const data = apiInfo.data
     
