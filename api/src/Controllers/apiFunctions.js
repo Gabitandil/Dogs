@@ -82,6 +82,22 @@ async function getAlldogs() {
         }
     })
 
+   let finalDbDog = await dbInfo.map(el=> {
+    return {
+        name: el.name,
+        image: el.image,
+        height: el.height,
+        weight: el.weight,
+        createdInDB: true,
+        temperament: el.temperaments.map(el => el.temperament ).join(', '),  //.map(el=> el).join(', '),
+        years: el.years
+    }
+
+    
+
+   })
+   
+
     if (data.length > 0) {
         let response = await data.map(el => {
             return {
@@ -92,11 +108,13 @@ async function getAlldogs() {
                 temperament: el.temperament,
                 id: el.id,
                 createdInDB: false,
-                reference_image_id: el.reference_image_id
+                years: el.life_span,
+                
             }
         })
 
-        const final = [...dbInfo, response]
+        const final = [...finalDbDog.concat(response)]
+        
         return final
 
     }
@@ -226,6 +244,7 @@ async function getById(id) {
     } else{
         return ' id invalido'
     }
+    
     
 
 
