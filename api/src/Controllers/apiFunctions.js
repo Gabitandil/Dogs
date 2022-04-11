@@ -173,15 +173,34 @@ async function getByName(name) {
         return 'no existe la raza'
     }
 }
-// if(Array.from(el).includes(id)){
+
 async function getById(id) {
     const getbyId = await axios.get('https://api.thedogapi.com/v1/breeds/')
     const dataId = getbyId.data
 
+    if(id.length>= 36){
+        //console.log('soy Database')
+        const findInDB = await Dog.findByPk(id, {include: Temperament})
+        let dataDb = {}
+        dataDb = {
+            id: findInDB.id,
+            name: findInDB.name,
+            height: findInDB.height,
+            weight: findInDB.weight,
+            years: findInDB.years,
+            createdInDB: findInDB.createdInDB,
+            image: findInDB.image,
+            temperament: findInDB.temperaments.map(el => el.temperament).join(', ')
+
+
+
+        }
+        return dataDb
+    }
+    
+    
+    
     const idData = []
-
-    //console.log('soy data', data )
-
     dataId.find(el => {
         if (el.id == id)
             idData.push(el)
@@ -204,6 +223,8 @@ async function getById(id) {
         return final
 
 
+    } else{
+        return ' id invalido'
     }
     
 
