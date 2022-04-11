@@ -24,9 +24,9 @@ router.get('/', async (req, res) => {
 
 router.get('/details/:id', async (req, res )=> { 
     const { id } = req.params
-    const test = getById(id)
+    const dogById = await getById(id)
     console.log('soy details id ', id)
-
+    return res.send(dogById)
 
 })
 

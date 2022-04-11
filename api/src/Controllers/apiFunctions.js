@@ -21,7 +21,7 @@ async function fillTemperaments() {
 
         // removeString =[]
 
-      
+
 
 
 
@@ -35,12 +35,12 @@ async function fillTemperaments() {
         //      }
         //  })
 
-         //''
+        //''
 
         let finalTemperament = [...new Set(test)]
         let final = finalTemperament.toString().trim().split(', ').join(',').split(',')
-        let filter = finalTemperament.filter(el=> el.length>1)
-         
+        let filter = finalTemperament.filter(el => el.length > 1)
+
         return filter
 
 
@@ -60,9 +60,9 @@ async function temperamentsDB() {
         }))
 
     }
-    
-    
-    
+
+
+
 }
 
 
@@ -71,7 +71,7 @@ async function temperamentsDB() {
 async function getAlldogs() {
     const apiInfo = await axios.get('https://api.thedogapi.com/v1/breeds')
     const data = apiInfo.data
-    
+
     const dbInfo = await Dog.findAll({
         include: {
             model: Temperament,
@@ -107,88 +107,109 @@ async function getAlldogs() {
 }
 
 async function getByName(name) {
-    
-    const findDogs = await  axios.get('https://api.thedogapi.com/v1/breeds/')
+
+    const findDogs = await axios.get('https://api.thedogapi.com/v1/breeds/')
     const data = findDogs.data
     const getDogByname = []
     data.forEach(el => {
-        if(el.name.includes(name.charAt(0).toUpperCase() + name.slice(1))){
+        if (el.name.includes(name.charAt(0).toUpperCase() + name.slice(1))) {
             getDogByname.push(el)
         }
     })
 
     const findInDB = await Dog.findOne({
-        where:{  name:name },
-        include:{
-            model: Temperament, 
+        where: { name: name },
+        include: {
+            model: Temperament,
             attributes: ["temperament"],
-            through:{
+            through: {
                 attributes: []
             }
-    }}) 
+        }
+    })
     //console.log('find in db:', findInDB)
-    if(findInDB){
-       let dogDB  = {}
-       dogDB = {
-           id: findInDB.id,
-           name: findInDB.name,
-           height: findInDB.height,
-           weight: findInDB.weight,
-           years: findInDB.years,
-           image: findInDB.image,
-           temperament: findInDB.temperaments.map(el => el.temperament).join(', ')
+    if (findInDB) {
+        let dogDB = {}
+        dogDB = {
+            id: findInDB.id,
+            name: findInDB.name,
+            height: findInDB.height,
+            weight: findInDB.weight,
+            years: findInDB.years,
+            image: findInDB.image,
+            temperament: findInDB.temperaments.map(el => el.temperament).join(', ')
 
         }
-        
+
         return dogDB
     }
 
-    if (getDogByname.length>0){
-      console.log('soy getDogByName= ', getDogByname)
-      let finalDogName = getDogByname.map(el => {
-        return {
-            id: el.id,
-            name: el.name,
-            image: el.image.url,
-            height: el.height.metric,
-            weight: el.weight.metric,
-            years: el.life_span,
-            temperament: el.temperament
+    if (getDogByname.length > 0) {
+        console.log('soy getDogByName= ', getDogByname)
+        let finalDogName = getDogByname.map(el => {
+            return {
+                id: el.id,
+                name: el.name,
+                image: el.image.url,
+                height: el.height.metric,
+                weight: el.weight.metric,
+                years: el.life_span,
+                temperament: el.temperament
 
 
-        }
+            }
 
 
 
-      }) 
+        })
 
 
-       return finalDogName 
-        
-        
-        
-        } else{
-        
+        return finalDogName
+
+
+
+    } else {
+
         return 'no existe la raza'
     }
 }
+// if(Array.from(el).includes(id)){
+async function getById(id) {
+    const getbyId = await axios.get('https://api.thedogapi.com/v1/breeds/')
+    const dataId = getbyId.data
 
-async function getById(id){
-    const getData = await axios.get('https://api.thedogapi.com/v1/breeds/')
-    const data = getData.data
-    const idData= {}
-    console.log('soy id', id)
+    const idData = []
+
     //console.log('soy data', data )
-    data.forEach(el => {
-        if(Array.from(el).includes(id)){
-            console.log('hola')
-        }
-         //console.log(' es 1', Array.from(el).includes('Australian') )
-     
-        
-     
+
+    dataId.find(el => {
+        if (el.id == id)
+            idData.push(el)
     })
-    console.log('chau')
+    //console.log('idData', idData)
+    if (idData.length > 0) {
+        console.log('entre')
+        let final = {}
+        final = {
+            id: idData[0].id,
+            name: idData[0].name,
+            image: idData[0].image.url,
+            height: idData[0].height.metric,
+            weight: idData[0].weight.metric,
+            years:  idData[0].life_span,
+            temperament: idData[0].temperament,
+
+        }
+        
+        return final
+
+
+    }
+    
+
+
+
+    
 
 }
 
