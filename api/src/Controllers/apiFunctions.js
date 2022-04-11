@@ -107,10 +107,25 @@ async function getAlldogs() {
 }
 
 async function getByName(name) {
-    console.log('soy el controller= ', name)
-    const findDogs = await  axios.get('https://api.thedogapi.com/v1/breeds/search?q='+ name)
+    
+    const findDogs = await  axios.get('https://api.thedogapi.com/v1/breeds/')
     const data = findDogs.data
-    //const getImage = await getAlldogs()
+    const getDogByname = []
+    data.forEach(el => {
+        if(el.name.includes(name.charAt(0).toUpperCase() + name.slice(1))){
+            getDogByname.push(el)
+        }
+    })
+
+
+    
+    
+    
+  
+    
+ 
+
+    //console.log('antes del for each', name )
 
     const findInDB = await Dog.findOne({
         where:{  name:name },
@@ -121,7 +136,7 @@ async function getByName(name) {
                 attributes: []
             }
     }}) 
-    console.log('find in db:', findInDB)
+    //console.log('find in db:', findInDB)
     if(findInDB){
        let dogDB  = {}
        dogDB = {
@@ -138,25 +153,31 @@ async function getByName(name) {
         return dogDB
     }
 
-    if (data.length>0){
-        let response = await data.map(el => {
-            return {
-                name: el.name,
-                weight: el.weight.metric,
-                height: el.height.metric,
-                id: el.id,
-                image: el.reference_image_id,
-                life_span: el.life_span,
-                temperament: el.temperament,
-                origin: el.origin
-            }
-            
+    if (getDogByname.length>0){
+      console.log('soy getDogByName= ', getDogByname)
+      let finalDogName = getDogByname.map(el => {
+        return {
+            id: el.id,
+            name: el.name,
+            image: el.image.url,
+            height: el.height.metric,
+            weight: el.weight.metric,
+            years: el.life_span,
+            temperament: el.temperament
 
 
-        })
+        }
+
+
+
+      }) 
+
+
+       return finalDogName 
         
-        return response
-    } else{
+        
+        
+        } else{
         
         return 'no existe la raza'
     }

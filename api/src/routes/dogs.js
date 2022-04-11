@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const { name } = req.query;
     
     if (name) {
-        console.log('entre ', name)
+       // console.log('entre ', name)
         const getName = await  getByName(name)
          res.send(getName)
        
