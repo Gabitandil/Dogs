@@ -117,16 +117,6 @@ async function getByName(name) {
         }
     })
 
-
-    
-    
-    
-  
-    
- 
-
-    //console.log('antes del for each', name )
-
     const findInDB = await Dog.findOne({
         where:{  name:name },
         include:{
@@ -183,7 +173,24 @@ async function getByName(name) {
     }
 }
 
+async function getById(id){
+    const getData = await axios.get('https://api.thedogapi.com/v1/breeds/')
+    const data = getData.data
+    const idData= {}
+    console.log('soy id', id)
+    //console.log('soy data', data )
+    data.forEach(el => {
+        if(Array.from(el).includes(id)){
+            console.log('hola')
+        }
+         //console.log(' es 1', Array.from(el).includes('Australian') )
+     
+        
+     
+    })
+    console.log('chau')
+
+}
 
 
-
-module.exports = { getDogs, getByName }
+module.exports = { getDogs, getByName, getById }

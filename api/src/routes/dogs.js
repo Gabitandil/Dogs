@@ -1,6 +1,6 @@
 
 const { Router } = require('express');
-const {getDogs, getByName} = require('../Controllers/apiFunctions')
+const {getDogs, getByName, getById} = require('../Controllers/apiFunctions')
 const { Dog, Temperament } = require('../db')
 const router = Router()
 
@@ -22,35 +22,12 @@ router.get('/', async (req, res) => {
 })
 
 
-// router.post('/create', async (req, res) => {
-//     let {
-//         name,
-//         height,
-//         weight,
-//         years,
-//         temperament,
-//     } = req.body
-
-//     let createDog = await Dog.create({
-
-//         name: name,
-//         height: height,
-//         weight: weight,
-//         years: years
+router.get('/details/:id', async (req, res )=> { 
+    const { id } = req.params
+    const test = getById(id)
+    console.log('soy details id ', id)
 
 
-//     })
-
-//     let temperamentDB = await Temperament.findAll({
-//         where: { ['temperament']: temperament }
-//     })
-
-//     let fullDog = await createDog.addTemperament(temperamentDB)
-//     //res.send(fullDog)
-//     console.log('temperamentDB', temperamentDB)
-
-//     res.send(fullDog)
-
-// })
+})
 
 module.exports = router
