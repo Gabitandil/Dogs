@@ -13,7 +13,7 @@ const LandingPage = () => {
             <p>IM LANDING </p>
             
             <Link to ='/home'>
-                <button>ingresar </button>
+                <button>eoeoe </button>
             </Link>
             
 
