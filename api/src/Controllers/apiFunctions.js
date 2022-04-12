@@ -84,6 +84,7 @@ async function getAlldogs() {
 
    let finalDbDog = await dbInfo.map(el=> {
     return {
+        id: el.id,
         name: el.name,
         image: el.image,
         height: el.height,

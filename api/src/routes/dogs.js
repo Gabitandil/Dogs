@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
     } else {
         const dogInfo = await getDogs()
-        console.log("hola soy /")
+       
         return res.json(dogInfo)
     }
 })
