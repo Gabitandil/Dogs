@@ -1,24 +1,25 @@
 import React from 'react'
-import {useDispatch} from 'react-redux'
 import { getDogs } from '../../redux/actions'
+import { Link } from 'react-router-dom'
 
 
 
 
 
+const LandingPage = () => {
 
-const Landing = () => {
-   const  dispatch = useDispatch()
-  return (
-    <div>
-        <p>IM LANDING </p>
+    return (
+        <div>
+            <p>IM LANDING </p>
+            
+            <Link to ='/home'>
+                <button>ingresar </button>
+            </Link>
+            
 
-        <button onClick={()=> dispatch(getDogs())}>aber </button>
 
-
-
-    </div>
-  )
+        </div>
+    )
 }
 
-export default Landing
+export default LandingPage
