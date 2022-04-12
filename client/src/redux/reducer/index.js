@@ -1,7 +1,8 @@
 import {GET_DOGS} from '../../constants/constants'
 
 const initialState= {
-    allDogs : []
+    allDogs : [],
+    oneDog: []
 }
 
 
@@ -13,7 +14,7 @@ export default function rootReducer ( state= initialState, action ){
         case GET_DOGS:
         return {
             ...state,
-            allDogs: "hola"
+            allDogs: action.payload
 
         }
 

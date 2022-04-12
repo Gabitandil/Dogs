@@ -104,6 +104,7 @@ async function getAlldogs() {
                 name: el.name,
                 image: el.image.url,
                 temperament: el.temperament,
+                height: el.height.metric,
                 weight: el.weight.metric,
                 temperament: el.temperament,
                 id: el.id,
