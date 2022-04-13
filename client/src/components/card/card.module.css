@@ -1,15 +1,13 @@
 .border{
-   border-style: ridge;
-   overflow: hidden;
-
+   border-style: solid;
+   background-color: pink;
+   
 }
 
 
 .image{
-    width:  450px;
-    height: 450px;
+    width:  400px;
+    height: 400px;
     object-fit: cover;
-
-
 
 }
