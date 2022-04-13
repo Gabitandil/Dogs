@@ -157,7 +157,8 @@ async function getByName(name) {
             weight: findInDB.weight,
             years: findInDB.years,
             image: findInDB.image,
-            temperament: findInDB.temperaments.map(el => el.temperament).join(', ')
+            temperament: findInDB.temperaments.map(el => el.temperament).join(', '),
+            createdInDB: findInDB.createdInDB
 
         }
 
@@ -183,7 +184,7 @@ async function getByName(name) {
 
         })
 
-
+        
         return finalDogName
 
 
