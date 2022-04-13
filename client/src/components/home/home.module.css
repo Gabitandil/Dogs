@@ -1,0 +1,13 @@
+.grid{
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+    
+    
+}
+
+.background{
+    background-color: pink;
+    height: 100%;
+    width: 100%;
+}

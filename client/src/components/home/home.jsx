@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getDogs } from '../../redux/actions'
 import SearchBar from '../searchbar/searchbar'
 import Card from '../card/card'
-
+import style from '../home/home.module.css'
 const Home = () => {
   const perros = useSelector(state => state.allDogs)
   const perritos = useSelector(state => state.oneDog)
@@ -21,9 +21,13 @@ const Home = () => {
 
 
   return (
-    <div>SOY HOME
+    <div className={style.background} >
       <SearchBar />
+
+
+      <div className={style.grid}  >
       {
+         
         perros.length > 0 ? perros.map(el => {
           return <Card key={el.id} name={el.name} image={el.image} temperament={el.temperament} years={el.years} id={el.id} />
 
@@ -44,20 +48,9 @@ const Home = () => {
 
 
               }) : <p>loading..</p>
-
-
-
-
-
-
-      }
-
-
-
-
-
-
-    </div>
+ }
+          </div>
+      </div>
   )
 }
 

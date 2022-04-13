@@ -1,0 +1,15 @@
+.border{
+   border-style: ridge;
+   overflow: hidden;
+
+}
+
+
+.image{
+    width:  450px;
+    height: 450px;
+    object-fit: cover;
+
+
+
+}
