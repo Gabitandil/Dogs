@@ -31,16 +31,25 @@ const Home = () => {
       }) : 
       
       
-      perritos.length>0? perritos.map(el => {
-        console.log('aber', perritos.length)
-         return <Card key={el.id} name= {el.name} image = {el.image} temperament = {el.temperament} years = {el.years} id = {el.id} />
+      perritos=='no existe la raza'?  <p>el perro no existe</p>
+       
+        
          
-      })
+     
       
       
     
       
-      :  <p>loading..</p>
+      : perritos.length>0?  perritos.map(el => {
+        return <Card key={el.id} name= {el.name} image = {el.image} temperament = {el.temperament} years = {el.years} id = {el.id} />
+ 
+ 
+       }) 
+      
+      
+      
+      
+       :  <p>loading..</p>
       
      
 

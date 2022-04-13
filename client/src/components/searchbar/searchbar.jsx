@@ -15,7 +15,7 @@ export default function SearchBar() {
     function handleInput(e) {
         e.preventDefault()
         setInput(e.target.value)
-
+        
 
 
     }
