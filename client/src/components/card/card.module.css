@@ -1,13 +1,34 @@
 .border{
+    resize: none;
+    width: 65%;
+    height: 100%; 
    border-style: solid;
-   background-color: pink;
+   border-radius: 35px;
+   background-color: black;
+   box-shadow: 7px 13px 37px rgba(0, 0, 0, .6);
+   overflow: hidden;
    
 }
-
+.father{
+    position: initial;
+}
 
 .image{
-    width:  400px;
-    height: 400px;
-    object-fit: cover;
+    width:  100%;
+    height: 300px;
+    object-fit: fill;
 
+}
+
+h1{
+    color: white;
+}
+
+h3{
+    color : white;
+
+}
+
+h4{
+    color: white;
 }

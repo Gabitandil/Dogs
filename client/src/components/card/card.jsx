@@ -2,6 +2,7 @@ import React from 'react'
 import stylecard from '../card/card.module.css'
 export default function card({name, image, temperament, id ,height, weight, years }) {
   return (
+    <div className={stylecard.father}>
     <div className={stylecard.border} >
 
       <div  >
@@ -12,6 +13,7 @@ export default function card({name, image, temperament, id ,height, weight, year
 
       </div>
 
+    </div>
     </div>
   )
 }
