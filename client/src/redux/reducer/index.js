@@ -1,4 +1,4 @@
-import {GET_DOGS} from '../../constants/constants'
+import {GET_DOGS, SEARCH_NAME} from '../../constants/constants'
 
 const initialState= {
     allDogs : [],
@@ -17,6 +17,12 @@ export default function rootReducer ( state= initialState, action ){
             allDogs: action.payload
 
         }
+        case SEARCH_NAME:
+            return {
+                ...state,
+                oneDog: action.payload,
+                allDogs: initialState
+            }
 
 
          default:

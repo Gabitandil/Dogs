@@ -1,5 +1,4 @@
 import React from 'react'
-import { getDogs } from '../../redux/actions'
 import { Link } from 'react-router-dom'
 
 
