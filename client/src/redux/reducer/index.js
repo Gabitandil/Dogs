@@ -21,7 +21,7 @@ export default function rootReducer ( state= initialState, action ){
             return {
                 ...state,
                 oneDog: action.payload,
-                allDogs: initialState
+                allDogs: []
             }
 
 

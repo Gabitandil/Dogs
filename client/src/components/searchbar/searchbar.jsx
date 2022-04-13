@@ -20,17 +20,21 @@ export default function SearchBar() {
 
     }
 
+    function handleSubmit(e) {
+        e.preventDefault()
+        dispatch(searchName(input))
+        setInput('')
+    }
 
 
-    
 
     return (
-        <div>searchbar
+        <div>
+            <form>
+                <input onChange={e => handleInput(e)} type="text" placeholder='buscar perro' value={input} />
+                <button onClick={e => handleSubmit(e)}  >buscar </button>
+            </form>
 
-        <input onChange={e => handleInput(e)} type="text" placeholder='buscar perro'   />
-        <button onClick={()  => dispatch(searchName(input))}>buscar</button>
-
-        
         </div>
     )
 }
