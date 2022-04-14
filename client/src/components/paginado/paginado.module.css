@@ -1,9 +1,22 @@
 .test{
-    position: absolute;
+    text-align: center;
+    position: relative;
+    top: 16px;
+    font-size: 18px;
+}
+
+.paginado{
+    padding: 15px;
+    background-color: black;
+    color: white;
+    display: block;
+    gap: 40px;
+    display: inline;
+    border-style: solid;
+    border-color: black;
     
 }
 
-.test2{
-    background-color: pink;
-    position: absolute;
+.paginado:hover{
+    cursor: pointer;
 }
