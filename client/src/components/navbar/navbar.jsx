@@ -20,7 +20,8 @@ export default function Navbar() {
         <div className={styleNavbar.test}  >
         
             <select onChange={(e)=> handleFilterTemperament(e)} name='select1'>
-            <option value="todos">temperaments</option>
+            <option value="aaaa">temperaments</option>
+            <option value="todos">todos</option>
             {temperaments.map(option => (
 
               <option key={option} value={option}>{option}</option>

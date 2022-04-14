@@ -35,7 +35,7 @@ export default function rootReducer ( state= initialState, action ){
                 
 
                 const dogsBeforeFilter = state.backupDogs
-                const filterByTemperament = action.payload ? dogsBeforeFilter[23] :  dogsBeforeFilter[0] //0 = affenspincher ---- 3 = airedale 
+                const filterByTemperament = action.payload ==='todos'?  'hola todos' :  dogsBeforeFilter[0] //0 = affenspincher ---- 3 = airedale 
                 console.log('soy filter temperament', filterByTemperament)
 
 
