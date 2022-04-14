@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDogs, getTemperaments } from '../../redux/actions'
-import SearchBar from '../searchbar/searchbar'
+import { getDogs } from '../../redux/actions'
 import NavBar from '../navbar/navbar'
 import Card from '../card/card'
+import Paginado from '../paginado/paginado'
 import style from '../home/home.module.css'
+
 const Home = () => {
   const perros = useSelector(state => state.allDogs)
   const perritos = useSelector(state => state.oneDog)
@@ -14,12 +15,17 @@ const Home = () => {
     dispatch(getDogs())
     
   }, [])
+  
+ const [currentPage, setCurrentpage] = useState(1)
+ const [dogsPerPage, setDogsPerPage] = useState(8)
+ const indexOfLastDog = currentPage* dogsPerPage
+ const indexOfFirstDog = indexOfLastDog - dogsPerPage
+ const currentDogs = perros.slice(indexOfFirstDog, indexOfLastDog)
 
-
-
-
-
-
+ const paginado = (pageNumber) => {
+   setCurrentpage(pageNumber)
+ }
+ console.log('currentdogs',currentDogs )
 
   return (
     <div className={style.background} >
@@ -30,7 +36,7 @@ const Home = () => {
       <div className={style.grid}  >
       {
          
-        perros.length > 0 ? perros.map(el => {
+         perros.length > 0 ? currentDogs.map(el => {
           return <Card key={el.id} name={el.name} image={el.image} temperament={el.temperament} years={el.years} id={el.id} weight= {el.weight}/>
 
 
@@ -52,6 +58,7 @@ const Home = () => {
               }) : <p>loading..</p>
  }
           </div>
+          <Paginado  dogsPerPage= {dogsPerPage} perros  = {perros.length}  paginado = {paginado}/>
       </div>
   )
 }

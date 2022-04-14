@@ -12,7 +12,7 @@ export default function Navbar() {
          <SearchBar/> 
         <div className={styleNavbar.test}  >
         
-            <select>
+            <select name='select1'>
             <option value="todos">temperaments</option>
             {temperaments.map(option => (
 
