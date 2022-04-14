@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getDogs())
-    dispatch(getTemperaments())
+    
   }, [])
 
 

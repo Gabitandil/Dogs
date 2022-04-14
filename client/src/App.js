@@ -2,7 +2,16 @@ import LandingPage from './components/landing/landing'
 import Home from './components/home/home'
 import { Link } from 'react-router-dom'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import {  getTemperaments } from './redux/actions'
+
 function App() {
+ const dispatch = useDispatch()
+
+ useEffect(() => {
+  dispatch(getTemperaments())
+}, [])
 
   return (
 
