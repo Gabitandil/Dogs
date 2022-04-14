@@ -94,7 +94,6 @@ async function getAlldogs() {
         years: el.years
     }
 
-    
 
    })
    
@@ -107,12 +106,13 @@ async function getAlldogs() {
                 temperament: el.temperament,
                 height: el.height.metric,
                 weight: el.weight.metric,
-                temperament: el.temperament,
                 id: el.id,
                 createdInDB: false,
                 years: el.life_span,
                 
             }
+            
+        // finalTemperament.toString().trim().split(', ').join(',').split(',')
         })
 
         const final = [...finalDbDog.concat(response)]
@@ -257,4 +257,4 @@ async function getById(id) {
 }
 
 
-module.exports = { getDogs, getByName, getById }
+module.exports = { getDogs, getByName, getById, fillTemperaments }

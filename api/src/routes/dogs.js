@@ -1,6 +1,6 @@
 
 const { Router } = require('express');
-const {getDogs, getByName, getById} = require('../Controllers/apiFunctions')
+const {getDogs, getByName, getById, fillTemperaments} = require('../Controllers/apiFunctions')
 const { Dog, Temperament } = require('../db')
 const router = Router()
 
@@ -27,6 +27,14 @@ router.get('/details/:id', async (req, res )=> {
     const dogById = await getById(id)
     console.log('soy details id ', id)
     return res.send(dogById)
+
+})
+
+router.get('/temperaments', async (req, res )=> {
+ const json = await fillTemperaments()
+
+ return res.send(json)
+
 
 })
 
