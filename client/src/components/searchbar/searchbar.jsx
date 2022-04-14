@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { searchName } from '../../redux/actions'
-
+import styleBar from '../searchbar/searchbar.module.css'
 
 
 
@@ -29,12 +29,15 @@ export default function SearchBar() {
 
 
     return (
-        <div>
+        <div className={styleBar.hola}>
+           
             <form>
-                <input onChange={e => handleInput(e)} type="text" placeholder='buscar perro' value={input} />
+                <input onChange={e => handleInput(e)} type="text" placeholder='buscar por raza' value={input} />
                 <button onClick={e => handleSubmit(e)}  >buscar </button>
             </form>
-
+               
+                   
+               
         </div>
     )
 }

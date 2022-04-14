@@ -1,7 +1,7 @@
 .border{
-    resize: none;
     width: 65%;
     height: 100%; 
+  
    border-style: solid;
    border-radius: 35px;
    background-color: black;
@@ -10,7 +10,7 @@
    
 }
 .father{
-    position: initial;
+    position: relative;
 }
 
 .image{
