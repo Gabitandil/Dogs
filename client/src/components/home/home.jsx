@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDogs } from '../../redux/actions'
+import { getDogs, getTemperaments } from '../../redux/actions'
 import SearchBar from '../searchbar/searchbar'
 import NavBar from '../navbar/navbar'
 import Card from '../card/card'
@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getDogs())
-
+    dispatch(getTemperaments())
   }, [])
 
 

@@ -1,4 +1,4 @@
-import { GET_DOGS, SEARCH_NAME } from "../../constants/constants";
+import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME } from "../../constants/constants";
 const axios = require('axios')
 
 
@@ -31,4 +31,15 @@ export function searchName(name){
 
 
 
+}
+
+
+export function getTemperaments(){
+  return async function (dispatch){
+    const json = await axios.get('http://localhost:3001/temperaments')
+    return dispatch({
+      type: GET_TEMPERAMENTS,
+      payload: json.data
+    })
+  }
 }
