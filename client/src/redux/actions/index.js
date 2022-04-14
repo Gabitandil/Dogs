@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME } from "../../constants/constants";
+import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS } from "../../constants/constants";
 const axios = require('axios')
 
 
@@ -42,4 +42,12 @@ export function getTemperaments(){
       payload: json.data
     })
   }
+}
+
+
+export function filterTemperaments(payload){
+return {
+  type: FILTER_TEMPERAMENTS,
+  payload
+}
 }

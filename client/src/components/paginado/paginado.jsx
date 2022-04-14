@@ -20,7 +20,7 @@ export default function Paginado({ dogsPerPage, perros, paginado }) {
                         return (<li className={style.paginado} key= {el} >
 
 
-                            <button  onClick={() => paginado(el)}>{el}</button>
+                            <a   onClick={() => paginado(el)}>{el}</a>
                             
 
 
