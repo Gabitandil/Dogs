@@ -1,16 +1,17 @@
 .border{
-    width: 65%;
+    width: 60%;
     height: 100%; 
-  
+  border-width: 5px;
    border-style: solid;
-   border-radius: 35px;
+   border-radius: 50px;
    background-color: black;
-   box-shadow: 7px 13px 37px rgba(0, 0, 0, .6);
+   box-shadow: 20px 20px 37px rgba(0, 0, 0, .6);
    overflow: hidden;
    
 }
 .father{
     position: relative;
+    
 }
 
 .image{

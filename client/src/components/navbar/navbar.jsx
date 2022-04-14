@@ -6,17 +6,22 @@ import { useSelector } from 'react-redux'
 export default function Navbar() {
   const temperaments = useSelector(state => state.temperaments)
  
+  function handleFilterTemperament(e){
+    console.log('handlefilter', e.target.value)
+  }
+
+
   return (
      
     <div>
          <SearchBar/> 
         <div className={styleNavbar.test}  >
         
-            <select name='select1'>
+            <select onChange={(e)=> handleFilterTemperament(e)} name='select1'>
             <option value="todos">temperaments</option>
             {temperaments.map(option => (
 
-              <option value={option}>{option}</option>
+              <option key={option} value={option}>{option}</option>
 
             ))}
 

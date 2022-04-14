@@ -25,7 +25,7 @@ const Home = () => {
  const paginado = (pageNumber) => {
    setCurrentpage(pageNumber)
  }
- console.log('currentdogs',currentDogs )
+
 
   return (
     <div className={style.background} >
@@ -36,7 +36,7 @@ const Home = () => {
       <div className={style.grid}  >
       {
          
-         perros.length > 0 ? currentDogs.map(el => {
+         currentDogs.length > 0 ? currentDogs.map(el => {
           return <Card key={el.id} name={el.name} image={el.image} temperament={el.temperament} years={el.years} id={el.id} weight= {el.weight}/>
 
 

@@ -36,6 +36,11 @@ router.get('/temperaments', async (req, res )=> {
  return res.send(json)
 
 
+
 })
+
+
+
+    
 
 module.exports = router
