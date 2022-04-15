@@ -114,7 +114,7 @@ async function getAlldogs() {
             
         // finalTemperament.toString().trim().split(', ').join(',').split(',')
         })
-
+        console.log('IM DATA', data[0].temperament.split(', '))
         const final = [...finalDbDog.concat(response)]
         
         return final

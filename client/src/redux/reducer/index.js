@@ -32,20 +32,25 @@ export default function rootReducer ( state= initialState, action ){
                     temperaments: action.payload
                 }
             case FILTER_TEMPERAMENTS:
-                
+               // let prueba = dogsForFilter.filter((el) => console.log('el', el.temperament.split(', ')))
                
                 console.log('action payload', action.payload)
-                const dogsBeforeFilter = state.backupDogs
+                const dogsForFilter = state.backupDogs
+                let deleteUndefined = dogsForFilter.filter((el) => el.temperament!==undefined)
+                
+                let ApllyFilter = deleteUndefined.filter((el)=> el.temperament.includes(action.payload))
 
-                let prueba = dogsBeforeFilter.map(el => el.temperament ).join(', ')
-                console.log('prueba', prueba)
-                const filterByTemperament = action.payload ==='todos'?  'hola todos' : prueba.includes(action.payload)? 'siii' : 'noooo'
+                
+                const filterByTemperament = action.payload ==='todos'?  dogsForFilter: ApllyFilter
+                
+                
+                
 
 
                 return {
                     ...state,
                     allDogs: filterByTemperament,
-                    oneDog: []
+                    oneDog:  []
                 }    
          default:
             return state
