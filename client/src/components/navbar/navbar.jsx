@@ -17,7 +17,7 @@ export default function Navbar() {
      
     <div>
          <SearchBar/> 
-        <div className={styleNavbar.test}  >
+        <div className={styleNavbar.position}  >
         
             <select onChange={(e)=> handleFilterTemperament(e)} name='select1'>
             <option value="todos">todos</option>
@@ -29,7 +29,15 @@ export default function Navbar() {
 
           </select>
        
-       
+              <div className={styleNavbar.test}>
+              <select name="" id="">
+                <option value="">razas</option>
+                <option value="">tuvieja</option>
+              </select>
+              
+
+          
+              </div>
 
 
         </div>

@@ -1,4 +1,4 @@
-.test {
+.position {
     color: white;
     position: absolute;
     left: 580px;
@@ -13,4 +13,13 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+
+
+.test{
+    position: absolute;
+    
+    left: 345px;
+    top: 0.5px;
+
 }
