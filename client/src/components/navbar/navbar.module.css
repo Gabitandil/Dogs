@@ -7,19 +7,20 @@
     
 }
 
-.color{
-    color:red;
-    left : 100px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
 
 
-.test{
+
+.filterBreeds{
     position: absolute;
     
     left: 345px;
     top: 0.5px;
 
+}
+
+.test{
+    position: absolute;
+    left: 350px;
+    
+    top: 0.5px;
 }

@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED } from "../../constants/constants";
+import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT } from "../../constants/constants";
 const axios = require('axios')
 
 
@@ -59,3 +59,13 @@ export function filterBreed(payload){
     payload
   }
   }
+
+
+export function alphabeticalSort(payload){
+ return {
+   type: ALPHABETICAL_SORT,
+   payload
+ }
+
+
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import SearchBar from '../searchbar/searchbar'
 import styleNavbar from '../navbar/navbar.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterTemperaments, filterBreed } from '../../redux/actions'
+import { filterTemperaments, filterBreed, alphabeticalSort } from '../../redux/actions'
 export default function Navbar() {
   const dispatch = useDispatch()
   const temperaments = useSelector(state => state.temperaments)
@@ -14,6 +14,12 @@ export default function Navbar() {
  function handleFilterBreed(e){
  dispatch(filterBreed(e.target.value))
  }
+
+
+ function handleAlphabeticalSort(e){
+   dispatch(alphabeticalSort(e.target.value))
+ }
+
   return (
 
     <div>
@@ -30,7 +36,7 @@ export default function Navbar() {
 
         </select>
 
-        <div className={styleNavbar.test}>
+        <div className={styleNavbar.filterBreeds}>
 
           <select onChange={(e)=> handleFilterBreed(e)} name="select2">
             <option value="">razas</option>
@@ -41,7 +47,14 @@ export default function Navbar() {
             ))}
           </select>
 
+              <div className={styleNavbar.test}>
 
+               <select  onChange = {(e) => handleAlphabeticalSort(e) }>
+                <option value="a-z">a-z</option>
+                <option value="z-a">z-a</option>
+              </select>
+
+              </div>
 
         </div>
 

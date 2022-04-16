@@ -1,4 +1,4 @@
-import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED} from '../../constants/constants'
+import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT} from '../../constants/constants'
 
 const initialState= {
     allDogs : [],
@@ -54,7 +54,15 @@ export default function rootReducer ( state= initialState, action ){
                         allDogs: applyFilterBreed
 
                     }
-                
+                case ALPHABETICAL_SORT: 
+                     
+                     let  alphabeticalSort = action.payload === 'a-z'?state.backupDogs.sort((a, b) =>  a.name.localeCompare(b.name)) :  state.backupDogs.sort((a, b) => -1 * a.name.localeCompare(b.name))
+                     let arrayAux = alphabeticalSort.map(el => el ) 
+                   
+                return {
+                    ...state,
+                    allDogs: arrayAux
+                }
          default:
             return state
     }
