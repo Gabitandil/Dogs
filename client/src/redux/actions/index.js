@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS } from "../../constants/constants";
+import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED } from "../../constants/constants";
 const axios = require('axios')
 
 
@@ -51,3 +51,11 @@ return {
   payload
 }
 }
+
+
+export function filterBreed(payload){
+  return {
+    type: FILTER_BREED,
+    payload
+  }
+  }

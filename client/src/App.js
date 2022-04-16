@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import {  getTemperaments } from './redux/actions'
+import {  getTemperaments, getDogs } from './redux/actions'
 
 function App() {
  const dispatch = useDispatch()
 
  useEffect(() => {
   dispatch(getTemperaments())
+  dispatch(getDogs())
 }, [])
 
   return (

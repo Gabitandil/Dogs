@@ -1,4 +1,4 @@
-import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS} from '../../constants/constants'
+import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED} from '../../constants/constants'
 
 const initialState= {
     allDogs : [],
@@ -32,26 +32,29 @@ export default function rootReducer ( state= initialState, action ){
                     temperaments: action.payload
                 }
             case FILTER_TEMPERAMENTS:
-               // let prueba = dogsForFilter.filter((el) => console.log('el', el.temperament.split(', ')))
-               
-                console.log('action payload', action.payload)
+            
                 const dogsForFilter = state.backupDogs
                 let deleteUndefined = dogsForFilter.filter((el) => el.temperament!==undefined)
                 
                 let ApllyFilter = deleteUndefined.filter((el)=> el.temperament.includes(action.payload))
-
-                
+  
                 const filterByTemperament = action.payload ==='todos'?  dogsForFilter: ApllyFilter
-                
-                
-                
-
-
+            
                 return {
                     ...state,
                     allDogs: filterByTemperament,
                     oneDog:  []
                 }    
+
+                case FILTER_BREED:
+                 const letsFilter = state.backupDogs
+                 let applyFilterBreed = letsFilter.filter((el => el.name.includes(action.payload)))
+                    return {
+                        ...state,
+                        allDogs: applyFilterBreed
+
+                    }
+                
          default:
             return state
     }

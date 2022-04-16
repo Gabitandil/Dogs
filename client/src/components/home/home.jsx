@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDogs } from '../../redux/actions'
+
 import NavBar from '../navbar/navbar'
 import Card from '../card/card'
 import Paginado from '../paginado/paginado'
@@ -11,10 +11,7 @@ const Home = () => {
   const perritos = useSelector(state => state.oneDog)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(getDogs())
-    
-  }, [])
+  
   
  const [currentPage, setCurrentpage] = useState(1)
  const [dogsPerPage, setDogsPerPage] = useState(8)
