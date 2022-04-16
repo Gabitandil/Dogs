@@ -1,4 +1,4 @@
-import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT} from '../../constants/constants'
+import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT} from '../../constants/constants'
 
 const initialState= {
     allDogs : [],
@@ -62,6 +62,11 @@ export default function rootReducer ( state= initialState, action ){
                 return {
                     ...state,
                     allDogs: arrayAux
+                }
+                
+                case SORT_WEIGHT : 
+                return {
+                    ...state
                 }
          default:
             return state
