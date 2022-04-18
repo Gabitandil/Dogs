@@ -23,8 +23,8 @@ export default function rootReducer ( state= initialState, action ){
         case SEARCH_NAME:
             return {
                 ...state,
-                oneDog: action.payload,
-                allDogs: []
+                allDogs: action.payload,
+                oneDog:  action.payload
             }
             case GET_TEMPERAMENTS:
                 return {

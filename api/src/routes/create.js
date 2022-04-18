@@ -23,15 +23,21 @@ router.post('/', async (req, res) => {
 
 
     })
+  
+    
+
+    
 
     let temperamentDB = await Temperament.findAll({
         where: { ['temperament']: temperament }
     })
 
-    concatTemperaments = temperamentDB
+
+   
     
     
-    let fullDog = await createDog.addTemperament(temperamentDB)
+    
+    let fullDog =  createDog.addTemperament(temperamentDB)
     
 
     res.send(fullDog)

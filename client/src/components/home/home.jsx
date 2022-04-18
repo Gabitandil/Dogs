@@ -31,29 +31,22 @@ const Home = () => {
 
 
       <div className={style.grid}  >
-      {
+      { perros === 'no existe la raza' ? <p>el perro no existe</p> :
+         
+         perritos.createdInDB == true ?
+         <Card key={perritos.id} name={perritos.name} image={perritos.image} temperament={perritos.temperament} years={perritos.years} id={perritos.id} />
+         
+         :
          
          currentDogs.length > 0 ? currentDogs.map(el => {
           return <Card key={el.id} name={el.name} image={el.image} temperament={el.temperament} years={el.years} id={el.id} weight= {el.weight}/>
+        }) 
 
 
-        }) :
+          
 
-
-          perritos === 'no existe la raza' ? <p>el perro no existe</p> :
-
-
-            perritos.createdInDB == true ?
-              <Card key={perritos.id} name={perritos.name} image={perritos.image} temperament={perritos.temperament} years={perritos.years} id={perritos.id} />
-
-
-
-              : perritos.length > 0 ? perritos.map(el => {
-                return <Card key={el.id} name={el.name} image={el.image} temperament={el.temperament} years={el.years} id={el.id} />
-
-
-              }) : <p>loading..</p>
- }
+         : <p>loading..</p>
+      }
           </div>
           <Paginado  dogsPerPage= {dogsPerPage} perros  = {perros.length}  paginado = {paginado}/>
       </div>
@@ -61,4 +54,3 @@ const Home = () => {
 }
 
 export default Home
-

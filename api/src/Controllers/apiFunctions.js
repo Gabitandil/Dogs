@@ -149,8 +149,8 @@ async function getByName(name) {
     })
     //console.log('find in db:', findInDB)
     if (findInDB) {
-        let dogDB = {}
-        dogDB = {
+        let dogDB = [{}]
+        dogDB = [{
             id: findInDB.id,
             name: findInDB.name,
             height: findInDB.height,
@@ -160,7 +160,7 @@ async function getByName(name) {
             temperament: findInDB.temperaments.map(el => el.temperament).join(', '),
             createdInDB: findInDB.createdInDB
 
-        }
+        }]
 
         return dogDB
     }
