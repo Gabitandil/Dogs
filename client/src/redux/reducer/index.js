@@ -66,13 +66,15 @@ export default function rootReducer ( state= initialState, action ){
                 
                 case SORT_WEIGHT : 
                 
-                let filterWrongDogs = state.backupDogs.filter(el => el.weight!== "NaN"  && el.weight !== "NaN - 8")
+                let filterInvalidDogs = state.backupDogs.filter(el => el.weight!== "NaN"  && el.weight !== "NaN - 8")
+                
                
-                let test = filterWrongDogs.sort((a,b) => console.log('jeje',a.weight.split('-')))
+                let filter  = action.payload === 'peso_menor'? filterInvalidDogs.sort((a,b) => parseInt(a.weight[0]) > b.weight[0]) : filterInvalidDogs.sort((a,b)=> parseInt(a.weight[1]) < b.weight[1])
 
 
                 return {
-                    ...state
+                    ...state,
+                    allDogs: filter
                 }
          default:
             return state
