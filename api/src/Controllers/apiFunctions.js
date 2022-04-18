@@ -88,7 +88,7 @@ async function getAlldogs() {
         name: el.name,
         image: el.image,
         height: el.height,
-        weight: el.weight,
+        weight: el.weight.split('-'),
         createdInDB: true,
         temperament: el.temperaments.map(el => el.temperament ).join(', '),  //.map(el=> el).join(', '),
         years: el.years
