@@ -15,7 +15,7 @@ export default function Navbar() {
     dispatch(filterTemperaments(e.target.value))
     navigate('/home')
   }
-  console.log('aaa', navigate)
+ 
   function handleFilterBreed(e) {
     dispatch(filterBreed(e.target.value))
     navigate('/home')

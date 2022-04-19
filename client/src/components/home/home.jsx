@@ -50,7 +50,7 @@ const Home = () => {
          : <p>loading..</p>
       }
           </div> 
-          <Paginado  dogsPerPage= {dogsPerPage} perros  = {perros.length}  paginado = {paginado}/>
+          <Paginado  dogsPerPage= {dogsPerPage} perros  = {perros!=="no existe la raza"? perros.length : 0}  paginado = {paginado}/>
       </div>
   )
 }

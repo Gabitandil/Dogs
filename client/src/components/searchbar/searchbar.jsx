@@ -26,7 +26,10 @@ export default function SearchBar() {
         e.preventDefault()
         dispatch(searchName(input))
         setInput('')
-        navigate('/home')
+        setTimeout(() => {
+            navigate('/home')
+        }, 2000);
+        
     }
 
 
