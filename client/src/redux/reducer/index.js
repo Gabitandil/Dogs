@@ -1,4 +1,4 @@
-import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS} from '../../constants/constants'
+import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS, REDUX_PAGENUMBER} from '../../constants/constants'
 
 const initialState= {
     allDogs : [],
@@ -48,6 +48,7 @@ export default function rootReducer ( state= initialState, action ){
                     ...state,
                     allDogs: filterByTemperament,
                     oneDog: [],
+                    pagenumber: 1
                 }    
 
                 case FILTER_BREED:
@@ -56,7 +57,8 @@ export default function rootReducer ( state= initialState, action ){
                     return {
                         ...state,
                         allDogs: applyFilterBreed,
-                        oneDog: []
+                        oneDog: [],
+                        pagenumber: 1
                     }
                 case ALPHABETICAL_SORT: 
                      
@@ -65,7 +67,8 @@ export default function rootReducer ( state= initialState, action ){
                    
                 return {
                     ...state,
-                    allDogs: arrayAux
+                    allDogs: arrayAux,
+                    pagenumber: 1
                 }
                 
                 case SORT_WEIGHT : 
@@ -79,7 +82,8 @@ export default function rootReducer ( state= initialState, action ){
                 return {
                     ...state,
                     allDogs: filter,
-                    oneDog: []
+                    oneDog: [],
+                    pagenumber: 1
                 }
                 case GET_DETAILS: 
 
@@ -88,6 +92,12 @@ export default function rootReducer ( state= initialState, action ){
                     ...state,
                     oneDog: action.payload
                 }
+                case REDUX_PAGENUMBER :
+                    return{
+                        ...state,
+                        pagenumber: action.payload
+                    }
+                
          default:
             return state
     }

@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { setPageNumber } from '../../redux/actions/index'
 import NavBar from '../navbar/navbar'
 import Card from '../card/card'
 import Paginado from '../paginado/paginado'
 import style from '../home/home.module.css'
 
 const Home = ({page}) => {
+  const dispatch = useDispatch()
   const perros = useSelector(state => state.allDogs)
   const pageRedux = useSelector(state => state.pagenumber)
 
   
   
- const [currentPage, setCurrentpage] = useState(1)
+
  const [dogsPerPage, setDogsPerPage] = useState(8)
- const indexOfLastDog = currentPage* dogsPerPage
+ const indexOfLastDog = pageRedux* dogsPerPage
  const indexOfFirstDog = indexOfLastDog - dogsPerPage
  const currentDogs = perros.slice(indexOfFirstDog, indexOfLastDog)
   
  const paginado = (pageNumber) => {
-   setCurrentpage(pageNumber)
+   dispatch(setPageNumber(pageNumber))
  }
  function noDogs(){
    

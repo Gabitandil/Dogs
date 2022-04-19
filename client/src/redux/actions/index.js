@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS } from "../../constants/constants";
+import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS, REDUX_PAGENUMBER } from "../../constants/constants";
 const axios = require('axios')
 
 
@@ -86,3 +86,10 @@ export function getDetails(id){
     })
   }
 }
+
+export function setPageNumber(payload){
+  return {
+    type: REDUX_PAGENUMBER,
+    payload
+  }
+  }
