@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styles from '../details/details.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { getDetails } from '../../redux/actions'
+import { getDetails, getTemperaments } from '../../redux/actions'
 import NavBar from '../navbar/navbar'
 export default function Details() {
     let { id } = useParams()
@@ -30,7 +30,7 @@ export default function Details() {
                         <h4>{dogsDetails.weight} kg </h4>
 
                         <Link to= '/home'>
-                            <button>volver</button>
+                            <button onClick={() => dispatch(getTemperaments())}>volver</button>
                         </Link>
                         
                         

@@ -17,8 +17,8 @@ export default function rootReducer ( state= initialState, action ){
         return {
             ...state,
             allDogs: action.payload,
-            backupDogs: action.payload
-
+            backupDogs: action.payload,
+            
         }
         case SEARCH_NAME:
             return {
@@ -28,7 +28,9 @@ export default function rootReducer ( state= initialState, action ){
             case GET_TEMPERAMENTS:
                 return {
                     ...state,
-                    temperaments: action.payload
+                    temperaments: action.payload,
+                    oneDog: []
+
                 }
             case FILTER_TEMPERAMENTS:
             
