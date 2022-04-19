@@ -62,6 +62,7 @@ export default function Navbar() {
           <div className={styleNavbar.test}>
 
             <select onChange={(e) => handleWeightSort(e)} name="select3">
+              <option value="normal">normal</option>
               <option value="peso_mayor">peso mayor</option>
               <option value="peso_menor">peso menor</option>
 

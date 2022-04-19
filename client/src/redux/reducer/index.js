@@ -1,4 +1,4 @@
-import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT} from '../../constants/constants'
+import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS} from '../../constants/constants'
 
 const initialState= {
     allDogs : [],
@@ -24,7 +24,6 @@ export default function rootReducer ( state= initialState, action ){
             return {
                 ...state,
                 allDogs: action.payload,
-                oneDog:  action.payload
             }
             case GET_TEMPERAMENTS:
                 return {
@@ -43,7 +42,7 @@ export default function rootReducer ( state= initialState, action ){
                 return {
                     ...state,
                     allDogs: filterByTemperament,
-                    oneDog:  []
+                    
                 }    
 
                 case FILTER_BREED:
@@ -69,12 +68,19 @@ export default function rootReducer ( state= initialState, action ){
                 let filterInvalidDogs = state.backupDogs.filter(el => el.weight!== "NaN"  && el.weight !== "NaN - 8")
                 
                
-                let filter  = action.payload === 'peso_menor'? filterInvalidDogs.sort((a,b) => parseInt(a.weight[0]) > b.weight[0]) : filterInvalidDogs.sort((a,b)=> parseInt(a.weight[1]) < b.weight[1])
+                let filter  = action.payload === 'peso_menor'? filterInvalidDogs.sort((a,b) => parseInt(a.weight[0]) > b.weight[0]) : action.payload === 'peso_mayor'?filterInvalidDogs.sort((a,b)=> parseInt(a.weight[1]) < b.weight[1]) : state.backupDogs
 
 
                 return {
                     ...state,
                     allDogs: filter
+                }
+                case GET_DETAILS: 
+
+
+                return {
+                    ...state,
+                    oneDog: action.payload
                 }
          default:
             return state

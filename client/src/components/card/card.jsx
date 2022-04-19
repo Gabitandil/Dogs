@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import stylecard from '../card/card.module.css'
 export default function card({name, image, temperament, id ,height, weight, years }) {
   return (
    <div>
 
     <div className={stylecard.border} >
-
+    <Link to ={`/details/${id}`} style={{textDecoration: 'inherit', color : 'inherit'}}>
       <div  >
       <img   className={stylecard.image} src={image} alt="not found" />
       <h1>{name}</h1>
@@ -14,7 +15,7 @@ export default function card({name, image, temperament, id ,height, weight, year
       <h4>weight:</h4>
       <h4>{weight} kg </h4>
       </div>
-
+      </Link>
     </div>
     </div>
   )

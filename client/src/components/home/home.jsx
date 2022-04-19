@@ -8,8 +8,7 @@ import style from '../home/home.module.css'
 
 const Home = () => {
   const perros = useSelector(state => state.allDogs)
-  const perritos = useSelector(state => state.oneDog)
-  const dispatch = useDispatch()
+  
 
   
   
@@ -33,8 +32,8 @@ const Home = () => {
       <div className={style.grid}  >
       { perros === 'no existe la raza' ? <p>el perro no existe</p> :
          
-         perritos.createdInDB == true ?
-         <Card key={perritos.id} name={perritos.name} image={perritos.image} temperament={perritos.temperament} years={perritos.years} id={perritos.id} />
+         perros.createdInDB == true ?
+         <Card key={perros.id} name={perros.name} image={perros.image} temperament={perros.temperament} years={perros.years} id={perros.id} />
          
          :
          

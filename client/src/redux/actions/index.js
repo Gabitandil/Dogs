@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT } from "../../constants/constants";
+import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS } from "../../constants/constants";
 const axios = require('axios')
 
 
@@ -75,4 +75,14 @@ return {
   payload
 }
 
+}
+
+export function getDetails(id){
+  return async function(dispatch){
+    const json = await axios.get('http://localhost:3001/details/'+ id)
+    return dispatch({
+      type: GET_DETAILS,
+      payload: json.data
+    })
+  }
 }
