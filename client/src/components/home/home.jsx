@@ -21,7 +21,10 @@ const Home = () => {
  const paginado = (pageNumber) => {
    setCurrentpage(pageNumber)
  }
-
+ function noDogs(){
+  return <h4 className={style.noDogs} >no se encuentra el perro </h4>
+  
+ }
 
   return (
     <div className={style.background} >
@@ -30,8 +33,8 @@ const Home = () => {
 
 
       <div className={style.grid}  >
-      { perros === 'no existe la raza' ? <p>el perro no existe</p> :
-         
+      { perros === "no existe la raza" ?   noDogs()
+         :
          perros.createdInDB == true ?
          <Card key={perros.id} name={perros.name} image={perros.image} temperament={perros.temperament} years={perros.years} id={perros.id} />
          
@@ -46,7 +49,7 @@ const Home = () => {
 
          : <p>loading..</p>
       }
-          </div>
+          </div> 
           <Paginado  dogsPerPage= {dogsPerPage} perros  = {perros.length}  paginado = {paginado}/>
       </div>
   )
