@@ -18,12 +18,14 @@ export default function rootReducer ( state= initialState, action ){
             ...state,
             allDogs: action.payload,
             backupDogs: action.payload,
+            oneDog: []
             
         }
         case SEARCH_NAME:
             return {
                 ...state,
                 allDogs: action.payload,
+                oneDog: []
             }
             case GET_TEMPERAMENTS:
                 return {
@@ -44,7 +46,7 @@ export default function rootReducer ( state= initialState, action ){
                 return {
                     ...state,
                     allDogs: filterByTemperament,
-                    
+                    oneDog: []
                 }    
 
                 case FILTER_BREED:
@@ -52,8 +54,8 @@ export default function rootReducer ( state= initialState, action ){
                  let applyFilterBreed = letsFilter.filter((el => el.name.includes(action.payload)))
                     return {
                         ...state,
-                        allDogs: applyFilterBreed
-
+                        allDogs: applyFilterBreed,
+                        oneDog: []
                     }
                 case ALPHABETICAL_SORT: 
                      
@@ -75,7 +77,8 @@ export default function rootReducer ( state= initialState, action ){
 
                 return {
                     ...state,
-                    allDogs: filter
+                    allDogs: filter,
+                    oneDog: []
                 }
                 case GET_DETAILS: 
 

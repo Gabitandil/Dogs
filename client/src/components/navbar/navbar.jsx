@@ -2,40 +2,50 @@ import React from 'react'
 import SearchBar from '../searchbar/searchbar'
 import styleNavbar from '../navbar/navbar.module.css'
 import { useDispatch, useSelector } from 'react-redux'
+import {Link, useNavigate } from 'react-router-dom'
+
 import { filterTemperaments, filterBreed, alphabeticalSort, sortByWeight } from '../../redux/actions'
 export default function Navbar() {
+  let navigate = useNavigate()
   const dispatch = useDispatch()
   const temperaments = useSelector(state => state.temperaments)
   const perritos = useSelector(state => state.backupDogs)
   function handleFilterTemperament(e) {
+    
     dispatch(filterTemperaments(e.target.value))
+    navigate('/home')
   }
-
+  console.log('aaa', navigate)
   function handleFilterBreed(e) {
     dispatch(filterBreed(e.target.value))
+    navigate('/home')
   }
 
 
   function handleAlphabeticalSort(e) {
     dispatch(alphabeticalSort(e.target.value))
+    navigate('/home')
   }
 
   function handleWeightSort(e){
     dispatch(sortByWeight(e.target.value))
+    navigate('/home')
   }
 
   return (
 
     <div>
+     
       <SearchBar />
       <div className={styleNavbar.position}  >
-
+       
         <select onChange={(e) => handleFilterTemperament(e)} name='select1'>
+          
           <option value="todos">temperamentos</option>
           {temperaments.map(option => (
-
+            
             <option key={option} value={option}>{option}</option>
-
+           
           ))}
 
         </select>
@@ -74,10 +84,10 @@ export default function Navbar() {
         </div>
 
 
-
+        
       </div>
 
-
+      
 
     </div>
   )

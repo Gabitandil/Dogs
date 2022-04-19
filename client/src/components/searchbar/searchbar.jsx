@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { searchName } from '../../redux/actions'
 import styleBar from '../searchbar/searchbar.module.css'
 
@@ -7,6 +8,7 @@ import styleBar from '../searchbar/searchbar.module.css'
 
 
 export default function SearchBar() {
+    let navigate = useNavigate()
     const dispatch = useDispatch()
     const [input, setInput] = useState('')
 
@@ -24,6 +26,7 @@ export default function SearchBar() {
         e.preventDefault()
         dispatch(searchName(input))
         setInput('')
+        navigate('/home')
     }
 
 
