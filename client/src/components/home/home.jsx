@@ -6,9 +6,9 @@ import Card from '../card/card'
 import Paginado from '../paginado/paginado'
 import style from '../home/home.module.css'
 
-const Home = () => {
+const Home = ({page}) => {
   const perros = useSelector(state => state.allDogs)
-  
+  const pageRedux = useSelector(state => state.pagenumber)
 
   
   
@@ -22,6 +22,7 @@ const Home = () => {
    setCurrentpage(pageNumber)
  }
  function noDogs(){
+   
   return <h4 className={style.noDogs} >no se encuentra el perro </h4>
   
  }

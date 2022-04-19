@@ -4,12 +4,13 @@ const initialState= {
     allDogs : [],
     oneDog: [],
     temperaments: [],
-    backupDogs : []
+    backupDogs : [],
+    pagenumber: 1
 }
 
 
 export default function rootReducer ( state= initialState, action ){
-
+  
     switch(action.type){
 
 
@@ -46,7 +47,7 @@ export default function rootReducer ( state= initialState, action ){
                 return {
                     ...state,
                     allDogs: filterByTemperament,
-                    oneDog: []
+                    oneDog: [],
                 }    
 
                 case FILTER_BREED:
