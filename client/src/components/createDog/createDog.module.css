@@ -1,0 +1,43 @@
+.background {
+    color: black;
+    font-size: large;
+    background-color: rgb(186, 176, 189);
+    min-width: 100vh;
+    min-height: 100vh;
+
+
+}
+
+.center {
+    text-align: center;
+}
+
+label {
+
+    width: 240px;
+    display: inline-block;
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    bottom: 800px;
+    left: 1550px;
+    font-size: large;
+}
+
+.select {
+    position: absolute;
+    bottom: 600px;
+    left: 1110px;
+
+}
+
+.submit {
+
+    position: absolute;
+    bottom: 500px;
+    left: 1150px;
+    font-size: large;
+
+}

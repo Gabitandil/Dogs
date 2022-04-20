@@ -1,4 +1,4 @@
-import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS, REDUX_PAGENUMBER} from '../../constants/constants'
+import {GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS, REDUX_PAGENUMBER, CREATE_DOG} from '../../constants/constants'
 
 const initialState= {
     allDogs : [],
@@ -97,6 +97,10 @@ export default function rootReducer ( state= initialState, action ){
                         ...state,
                         pagenumber: action.payload
                     }
+                case CREATE_DOG: 
+                return {
+                    ...state,
+                }    
                 
          default:
             return state

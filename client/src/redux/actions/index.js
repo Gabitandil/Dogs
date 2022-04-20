@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS, REDUX_PAGENUMBER } from "../../constants/constants";
+import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS, REDUX_PAGENUMBER, CREATE_DOG } from "../../constants/constants";
 const axios = require('axios')
 
 
@@ -92,4 +92,12 @@ export function setPageNumber(payload){
     type: REDUX_PAGENUMBER,
     payload
   }
+  }
+
+  export function createDog(payload){
+    return async function(response){
+      const json = await axios.post('http://localhost:3001/create', payload)
+      return response
+      
+    }
   }
