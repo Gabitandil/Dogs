@@ -10,6 +10,8 @@
    position: absolute;
    text-align: center;
    left: 400px;
+   color: white;
+   border-color: black;
 }
 
 
@@ -19,23 +21,6 @@
     height: 600px;
     object-fit: fill;
 
-}
-
-p{
-    color:white
-}
-
-h1{
-    color: white;
-}
-
-h3{
-    color : white;
-
-}
-
-h4{
-    color: white;
 }
 
 h5{

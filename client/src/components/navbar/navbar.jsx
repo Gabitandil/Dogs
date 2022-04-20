@@ -69,7 +69,7 @@ export default function Navbar() {
             </select>
 
           </div>
-          <div className={styleNavbar.test}>
+          <div className={styleNavbar.weight}>
 
             <select onChange={(e) => handleWeightSort(e)} name="select3">
               <option value="normal">normal</option>
@@ -86,9 +86,9 @@ export default function Navbar() {
 
         
       </div>
-
-      
-
+              <Link to= '/home/create'>
+      <button className={styleNavbar.create}>crear perro!</button>
+      </Link>
     </div>
   )
 }

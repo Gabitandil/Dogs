@@ -25,8 +25,15 @@
     top: 0.5px;
 }
 
-.test{
+.weight{
 position: absolute;
 left: 500px;
 top: 0.5px;
+}
+
+.create{
+    position: absolute;
+    top: 0.5px;
+    left:1900px;
+    width: 180px;
 }

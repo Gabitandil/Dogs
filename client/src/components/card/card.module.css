@@ -4,10 +4,12 @@
   border-width: 5px;
    border-style: solid;
    border-radius: 50px;
+   border-color: black;
    background-color: black;
    box-shadow: 20px 20px 37px rgba(0, 0, 0, .6);
    overflow: hidden;
    gap: 20px;
+   color: white;
 }
 .father{
     position: relative;
@@ -21,15 +23,3 @@
 
 }
 
-h1{
-    color: white;
-}
-
-h3{
-    color : white;
-
-}
-
-h4{
-    color: white;
-}

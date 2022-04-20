@@ -49,7 +49,7 @@ const Home = ({page}) => {
 
           
 
-         : <p>loading..</p>
+         : <h5>loading..</h5>
       }
           </div> 
           <Paginado  dogsPerPage= {dogsPerPage} perros  = {perros!=="no existe la raza"? perros.length : 0}  paginado = {paginado}/>
