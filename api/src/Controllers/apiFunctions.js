@@ -154,7 +154,7 @@ async function getByName(name) {
             id: findInDB.id,
             name: findInDB.name,
             height: findInDB.height,
-            weight: findInDB.weight,
+            weight: findInDB.weight.split('-'),
             years: findInDB.years,
             image: findInDB.image,
             temperament: findInDB.temperaments.map(el => el.temperament).join(', '),
@@ -173,7 +173,7 @@ async function getByName(name) {
                 name: el.name,
                 image: el.image.url,
                 height: el.height.metric,
-                weight: el.weight.metric,
+                weight: el.weight.metric.split('-'),
                 years: el.life_span,
                 temperament: el.temperament
 

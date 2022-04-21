@@ -1,20 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-
+import style from '../landing/landing.module.css'
+import image from './img/img1.jpg'
 
 
 
 const LandingPage = () => {
 
     return (
-        <div>
-            <p>IM LANDING </p>
+        <div className={style.background} >
+            <h1 className={style.text}>PROYECTO  DOGS</h1>
             
             <Link to ='/home'>
-                <button> ingresar </button>
+                <button className={style.button} > ingresar </button>
+
             </Link>
-            
+           
 
 
         </div>

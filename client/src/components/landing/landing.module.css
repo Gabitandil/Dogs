@@ -1,0 +1,21 @@
+
+
+.background{
+   background-image: url(file:///C:/Users/Gaby/Desktop/PI-Dogs-main/client/src/components/landing/img/img1.jpg);
+   background-size: 100% 100%;
+   height: 100vh;
+}
+
+.button{
+position: absolute;
+font-size:x-large;
+cursor: pointer;
+left: 900px;
+top: 70px;
+}
+
+.text{
+    
+    position: absolute;
+    
+}
