@@ -13,7 +13,7 @@ export default function card({name, image, temperament, id ,height, weight, year
       <h3>{temperament}</h3>
       <h4>life span: {years}</h4>
       <h4>weight:</h4>
-      <h4>{weight} kg </h4>
+      <h4>{weight.join(',')} kg </h4>
       </div>
       </Link>
     </div>

@@ -10,6 +10,8 @@ export default function CreateDog() {
    const [input, setInput] = useState({
     name: "",
     height: "",
+    minWeight: "",
+    maxWeight:"",
     weight: "",
     years: "",
     image: "",
@@ -38,8 +40,10 @@ export default function CreateDog() {
 
    function handleSubmit(e){
      e.preventDefault()
-     console.log('submit')
+    input.weight = input.minWeight  +'-'+ input.maxWeight
+     
      dispatch(createDog(input))
+     alert("perro creado!!")
    }
 
   return (
@@ -56,14 +60,20 @@ export default function CreateDog() {
 
 
         <div className={styles.center}>
-        <label >weight</label>
+        <label >min weight</label>
         <input type="number" placeholder='ingresa  weight' min="0" onChange={(e) => handleInput(e)}
-        value={input.weight}
-        name = "weight"
+        value={input.minWeight}
+        name = "minWeight"
         />
         </div>
 
-       
+        <div className={styles.center}>
+        <label >max weight</label>
+        <input type="number" placeholder='ingresa  weight' min="0" onChange={(e) => handleInput(e)}
+        value={input.maxWeight}
+        name = "maxWeight"
+        />
+        </div>
 
         <div className={styles.center}>
         <label >height</label>
