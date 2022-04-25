@@ -47,11 +47,11 @@ const Home = ({page}) => {
         }) 
 
 
+        :<div className={style.loading}> <h5 >loading..</h5> </div>
           
 
-         : <h5>loading..</h5>
       }
-          </div> 
+      </div> 
           <Paginado  dogsPerPage= {dogsPerPage} perros  = {perros!=="no existe la raza"? perros.length : 0}  paginado = {paginado}/>
       </div>
   )

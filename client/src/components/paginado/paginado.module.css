@@ -1,23 +1,28 @@
-.test{
+.position{
     text-align: center;
-    position: relative;
+    
     top: 16px;
     font-size: 18px;
 }
 
 .paginado{
-    padding: 15px;
-    background-color: black;
+    display: inline-block;
+   
     color: white;
-    display: block;
-    gap: 40px;
-    display: inline;
-    border-style: solid;
-    border-color: black;
+    
+    
+    
+   
     
 }
 
 .paginado:hover{
     cursor: pointer;
+    color: red;
+    
 }
 
+.anchor{
+    background-color: black;
+    padding: 13px
+}

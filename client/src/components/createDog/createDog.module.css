@@ -1,6 +1,6 @@
 .background {
     color: black;
-    font-size: large;
+    font-size: x-large;
     background-color: rgb(186, 176, 189);
     min-width: 100vh;
     min-height: 100vh;
@@ -17,6 +17,7 @@ label {
     width: 240px;
     display: inline-block;
     text-align: center;
+    margin: 25px;
 }
 
 .button {
@@ -28,7 +29,7 @@ label {
 
 .select {
     position: absolute;
-    bottom: 600px;
+    bottom: 400px;
     left: 1110px;
 
 }
@@ -36,7 +37,7 @@ label {
 .submit {
 
     position: absolute;
-    bottom: 500px;
+    bottom: 300px;
     left: 1150px;
     font-size: large;
 

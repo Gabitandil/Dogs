@@ -12,15 +12,15 @@ export default function Paginado({ dogsPerPage, perros, paginado }) {
 
 
     return (
-        <div className={style.test} >
+        <div className={style.position} >
             <nav>
                
                 <ul >
                     {pageNumbers && pageNumbers.map((el) => {
                         return (<li className={style.paginado} key= {el} >
+                            
 
-
-                            <a   onClick={() => paginado(el)}>{el}</a>
+                            <a  className={style.anchor}  onClick={() => paginado(el)}>{el}</a>
                             
 
 
