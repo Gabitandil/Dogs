@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getDetails, getTemperaments } from '../../redux/actions'
 import NavBar from '../navbar/navbar'
+import Loading from '../loading/loading'
 export default function Details() {
     let { id } = useParams()
     const dogsDetails = useSelector(state => state.oneDog)
@@ -36,7 +37,7 @@ export default function Details() {
                         
                     </div>
                     
-                ) : <div> <h5>loading...</h5></div>
+                ) : <div> <Loading/></div>
                     
                 
                 

@@ -5,6 +5,7 @@ import NavBar from '../navbar/navbar'
 import Card from '../card/card'
 import Paginado from '../paginado/paginado'
 import style from '../home/home.module.css'
+import Loading from '../loading/loading'
 
 const Home = ({page}) => {
   const dispatch = useDispatch()
@@ -47,7 +48,7 @@ const Home = ({page}) => {
         }) 
 
 
-        :<div className={style.loading}> <h5 >loading..</h5> </div>
+        :<div className={style.loading}> <Loading/> </div>
           
 
       }
