@@ -5,6 +5,7 @@ tecnologias utilizadas:  React, Redux, CSS puro y Back-End desarrollado en Node.
 este proyecto me permitio aprender a: consumir los datos de una api, usar endpoints, realizar ordenamientos, utilizar css puro,  entender como funciona de una manera fluida el flujo de la informacion cuando usas react-redux
 
 
+home:
 ![dog home with my dog](https://user-images.githubusercontent.com/70545509/172278574-e1b6fb1a-b6f8-47a4-ba7a-69f5f61a2e75.png)
 
 detalles de una raza elegida :
