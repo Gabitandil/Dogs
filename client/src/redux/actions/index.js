@@ -1,5 +1,6 @@
 import { GET_DOGS, GET_TEMPERAMENTS, SEARCH_NAME, FILTER_TEMPERAMENTS, FILTER_BREED, ALPHABETICAL_SORT, SORT_WEIGHT, GET_DETAILS, REDUX_PAGENUMBER, CREATE_DOG } from "../../constants/constants";
-const axios = require('axios')
+import axios from "axios";
+
 
 
 
