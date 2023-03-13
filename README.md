@@ -18,7 +18,7 @@ este proyecto me permitio aprender a: consumir los datos de una api, usar endpoi
 
 ![dog create dog](https://user-images.githubusercontent.com/70545509/172278673-c86dbbe2-20a6-4f5d-ae6a-aeccb4bc711a.png)
 
- <h1>  paginado :  </h1>
+ <h1>  paginado   </h1>
  
 ![dog api pagination](https://user-images.githubusercontent.com/70545509/172278828-32c295c4-f37c-4be8-a80e-921a31e05c42.png)
 
